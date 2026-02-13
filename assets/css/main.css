@@ -3563,15 +3563,20 @@ body.is-preload #wrapper.fade-in:before {
 } */
 
 #intro.hidden {
-	pointer-events: auto !important; /* Changed from none */
-	-moz-transform: none !important;
-	-webkit-transform: none !important;
-	-ms-transform: none !important;
-	transform: none !important;
-	
-    /* This is the most important part */
-	opacity: 0 !important;          /* Changed from 0 */
-	visibility: visible !important;   /* Changed from hidden */
+    pointer-events: none;
+    opacity: 0;
+    -moz-transform: translateY(-2rem);
+    -webkit-transform: translateY(-2rem);
+    -ms-transform: translateY(-2rem);
+    transform: translateY(-2rem);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* This part ensures it comes back when the .hidden class is removed */
+#intro {
+    opacity: 1;
+    visibility: visible !important;
+    transition: opacity 1s ease, transform 1s ease;
 }
 
 
